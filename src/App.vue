@@ -1,5 +1,5 @@
 <template>
-  <div class="body-wrapper w-full min-h-screen">
+  <div class="body-wrapper w-full min-h-screen bg-gray-900">
     <div class="container mx-auto min-h-screen">
       <router-view />
     </div>
