@@ -119,10 +119,6 @@ export default {
 
     gameOverReport() {
       this.$emit("gameOver");
-    },
-
-    levelTimer() {
-      window.setTimeout();
     }
   },
 
