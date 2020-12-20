@@ -39,6 +39,7 @@
 
 <script>
 import AppNavigation from "@/components/appNavigation";
+
 export default {
   name: "gameInputPlayerName",
   components: { AppNavigation },
@@ -48,14 +49,46 @@ export default {
       nameFulled: true
     };
   },
+  mounted() {
+    this.checkCookieName();
+  },
+
   methods: {
     checkName() {
       this.nameFulled = !!this.playerName;
     },
 
+    checkCookieName() {
+      let cookieHaveName = document.cookie
+        .split(";")
+        .some(item => item.trim().startsWith("playerName"));
+
+      if (cookieHaveName) {
+        this.fillNameFromCookies();
+      }
+    },
+
+    fillNameFromCookies() {
+      let cookie = document.cookie;
+      let cookieArray = cookie.split(";");
+
+      let cookieItem = cookieArray.find(item =>
+        item.trim().startsWith("playerName")
+      );
+
+      this.playerName = cookieItem.replaceAll("playerName=", "");
+    },
+
+    saveNameToCookies() {
+      let now = new Date();
+      let next30 = new Date(now.setDate(now.getDate() + 30)).toUTCString();
+      document.cookie = "playerName=" + this.playerName + "; expires=" + next30;
+    },
+
     gameLaunch() {
       this.checkName();
       if (this.nameFulled) {
+        this.saveNameToCookies();
         this.$store.commit("editPlayerName", this.playerName);
         this.$emit("startGame");
       }
