@@ -4,6 +4,7 @@
     <h1 class="font-title text-gray-200 text-center py-8 text-4xl">
       WoW: Mists of Tirna Scithe puzzle
     </h1>
+    <game-level-ui></game-level-ui>
     <div class="game-board grid grid-cols-4 gap-4">
       <game-card
         v-for="item in this.finalCards"
@@ -20,9 +21,10 @@
 <script>
 import GameCard from "@/components/gameCard";
 import GameHeader from "@/components/gameHeader";
+import GameLevelUi from "@/components/gameLevelUi";
 export default {
   name: "gameTable",
-  components: { GameHeader, GameCard },
+  components: { GameLevelUi, GameHeader, GameCard },
 
   data() {
     return {

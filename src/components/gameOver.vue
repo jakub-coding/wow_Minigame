@@ -31,6 +31,9 @@ export default {
     tryAgain() {
       this.$store.commit("resetLives");
       this.$store.commit("resetScore");
+      this.$store.commit("resetRound");
+      this.$store.commit("resetLevel");
+
       this.$emit("tryAgainReq");
     }
   }

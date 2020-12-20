@@ -29,6 +29,7 @@ export default {
   methods: {
     clickCard() {
       if (this.isMaster) {
+        this.leveInterface();
         this.$store.commit("incrementScore");
         this.$emit("shuffleCards");
       } else {
@@ -36,6 +37,16 @@ export default {
         if (this.$store.state.player.playerLives === 0) {
           this.$emit("gameOver");
         }
+      }
+    },
+
+    leveInterface() {
+      if (this.$store.state.game.gameRound < 5) {
+        this.$store.commit("increaseRound");
+      }
+      if (this.$store.state.game.gameRound === 5) {
+        this.$store.commit("increaseLevel");
+        this.$store.commit("resetRound");
       }
     }
   }

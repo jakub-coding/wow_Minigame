@@ -1,6 +1,6 @@
 <template>
   <div
-    class="header-wrapper grid grid-cols-2 font-title text-gray-200 text-2xl py-16"
+    class="header-wrapper grid grid-cols-2 font-title text-gray-200 text-2xl pt-16"
   >
     <div class="player-info text-left">
       <h1 class="mb-2">Player: {{ this.$store.state.player.playerName }}</h1>
