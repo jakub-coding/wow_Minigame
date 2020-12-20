@@ -29,12 +29,14 @@ export default {
   components: { AppNavigation },
   methods: {
     tryAgain() {
-      this.$store.commit("resetLives");
+      /*this.$store.commit("resetLives");
       this.$store.commit("resetScore");
       this.$store.commit("resetRound");
       this.$store.commit("resetLevel");
+      this.$store.commit("resetTimeIndex");
 
-      this.$emit("tryAgainReq");
+      this.$emit("tryAgainReq");*/
+      window.location.href = "/";
     }
   }
 };

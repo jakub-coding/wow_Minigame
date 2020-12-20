@@ -15,6 +15,7 @@
         @gameOver="gameOverReport"
       ></game-card>
     </div>
+    <game-timer @gameOver="gameOverReport"></game-timer>
   </div>
 </template>
 
@@ -22,9 +23,10 @@
 import GameCard from "@/components/gameCard";
 import GameHeader from "@/components/gameHeader";
 import GameLevelUi from "@/components/gameLevelUi";
+import GameTimer from "@/components/gameTimer";
 export default {
   name: "gameTable",
-  components: { GameLevelUi, GameHeader, GameCard },
+  components: { GameTimer, GameLevelUi, GameHeader, GameCard },
 
   data() {
     return {

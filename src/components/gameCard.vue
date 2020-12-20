@@ -31,6 +31,7 @@ export default {
       if (this.isMaster) {
         this.leveInterface();
         this.$store.commit("incrementScore");
+        this.$store.commit("resetProgress");
         this.$emit("shuffleCards");
       } else {
         this.$store.commit("lostLive");
@@ -46,6 +47,7 @@ export default {
       }
       if (this.$store.state.game.gameRound === 5) {
         this.$store.commit("increaseLevel");
+        this.$store.commit("increaseTimeIndex");
         this.$store.commit("resetRound");
       }
     }

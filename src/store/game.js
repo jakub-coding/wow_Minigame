@@ -2,7 +2,8 @@ export default {
   state: {
     gameLevel: 1,
     gameRound: 0,
-    gameRoundTimer: 5000
+    gameTimeIndex: 5,
+    gameProgress: 100
   },
 
   mutations: {
@@ -17,6 +18,18 @@ export default {
     },
     resetRound(state) {
       state.gameRound = 0;
+    },
+    increaseTimeIndex(state) {
+      state.gameTimeIndex = state.gameTimeIndex + 2;
+    },
+    resetTimeIndex(state) {
+      state.gameTimeIndex = 5;
+    },
+    decreaseProgress(state, payload) {
+      state.gameProgress = state.gameProgress - payload;
+    },
+    resetProgress(state) {
+      state.gameProgress = 100;
     }
   }
 };
