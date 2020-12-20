@@ -3,7 +3,6 @@
     <div class="container mx-auto min-h-screen">
       <router-view />
     </div>
-    <main-footer></main-footer>
   </div>
 </template>
 
@@ -16,8 +15,7 @@
 </style>
 
 <script>
-import MainFooter from "@/components/mainFooter";
 export default {
-  components: { MainFooter }
+  //
 };
 </script>

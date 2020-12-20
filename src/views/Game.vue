@@ -1,12 +1,13 @@
 <template>
-  <div class="home">
-    <h1 class="font-title text-2xl text-gray-200">Welcome to home</h1>
+  <div class="game-wrapper">
+    <game-start-u-i></game-start-u-i>
   </div>
 </template>
 
 <script>
+import GameStartUI from "@/components/gameStartUI";
 export default {
   name: "Home",
-  components: {}
+  components: { GameStartUI }
 };
 </script>
