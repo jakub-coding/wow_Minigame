@@ -25,7 +25,7 @@ export default {
     progressHandler() {
       this.progressDec(this.$store.state.game.gameTimeIndex);
 
-      console.log(this.$store.state.game.gameProgress);
+      /*console.log(this.$store.state.game.gameProgress);*/
 
       if (this.$store.state.game.gameProgress <= 0) {
         if (this.$store.state.player.playerLives === 1) {

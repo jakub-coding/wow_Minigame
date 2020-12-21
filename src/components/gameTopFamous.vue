@@ -79,7 +79,6 @@ export default {
           }
         })
         .then(response => {
-          console.log(response.data.data);
           this.sortData(response.data.data);
         });
     },

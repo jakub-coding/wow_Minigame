@@ -24,19 +24,49 @@
 
 <script>
 import AppNavigation from "@/components/appNavigation";
+import axios from "axios";
 export default {
   name: "gameOver",
   components: { AppNavigation },
+  data() {
+    return {
+      payload: {
+        player_name: "",
+        player_level: 0,
+        player_score: 0
+      }
+    };
+  },
+  mounted() {
+    this.fillPayload();
+  },
   methods: {
     tryAgain() {
-      /*this.$store.commit("resetLives");
-      this.$store.commit("resetScore");
-      this.$store.commit("resetRound");
-      this.$store.commit("resetLevel");
-      this.$store.commit("resetTimeIndex");
-
-      this.$emit("tryAgainReq");*/
       window.location.href = "/";
+    },
+
+    fillPayload() {
+      this.payload.player_name = this.$store.state.player.playerName;
+      this.payload.player_score = this.$store.state.player.playerScore;
+      this.payload.player_level = this.$store.state.game.gameLevel;
+
+      this.storeScore();
+    },
+
+    storeScore() {
+      axios
+        .post(
+          "http://api-coding.jakub-coding.de/api/score-store",
+          this.payload,
+          {
+            headers: {
+              Authorization: "Bearer HHT4iNJpIIFtWEv7tOgobq2Cn4KpFsx4RoQIthqG"
+            }
+          }
+        )
+        .then(response => {
+          console.log(response.data);
+        });
     }
   }
 };
