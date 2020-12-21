@@ -26,23 +26,25 @@
       </h1>
     </div>
 
-    <div class="button-block text-center mt-28">
+    <div class="button-block text-center mt-8">
       <a
         @click="gameLaunch"
         class="start-game-btn bg-green-main px-16 py-4 rounded shadow-md font-title text-2xl inline-block text-gray-200 cursor-pointer"
         >Start Game !</a
       >
     </div>
+    <game-top-famous></game-top-famous>
     <app-navigation></app-navigation>
   </div>
 </template>
 
 <script>
 import AppNavigation from "@/components/appNavigation";
+import GameTopFamous from "@/components/gameTopFamous";
 
 export default {
   name: "gameInputPlayerName",
-  components: { AppNavigation },
+  components: { GameTopFamous, AppNavigation },
   data() {
     return {
       playerName: null,

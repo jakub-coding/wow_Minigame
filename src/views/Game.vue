@@ -6,6 +6,7 @@
 
 <script>
 import GameStartUI from "@/components/gameStartUI";
+
 export default {
   name: "Home",
   components: { GameStartUI }
